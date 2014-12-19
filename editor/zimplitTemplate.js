@@ -1,0 +1,1 @@
+function ZChangeTemplate(fileAddr){	document.location= 'zimplit.php?action=gettemplate&file='+fileAddr;}
