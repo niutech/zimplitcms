@@ -4125,20 +4125,6 @@ var Zimplit = {
 			});
 			Zimplit.eventFunctions.mouseScroll();
 			
-		},
-
-		validate: function(){
-			var thePageLoc = document.location.href.split(ZphpName)[0];
-			$.ajax({
-				type: 'GET',
-				url: 'http://zimplit.com/clientcounter/count.php',
-				data: {client: '<?php echo $uid; ?>', page: thePageLoc},
-				dataType: 'script',
-				jsonp:'jsonp_callback',
-				success: function(data) {
-					if(ZUserCountResponse != 'Success'){alert(ZUserCountResponse);}
-				}
-			});
 		}
 		
 	},
@@ -4375,7 +4361,6 @@ function ZinitPageEvents(){
 var endImgResize = false;
 
 function ready() {
-	Zimplit.initFunctions.validate();
 	Zimplit.initFunctions.checkBrowserCompability();
 	Zimplit.initFunctions.isHtmlWritable();
 	
@@ -4386,11 +4371,5 @@ function ready() {
 	Zimplit.initFunctions.drawMenu();
 	Zimplit.GUI.sideMenu.init();
 	
-	
-
-	// just google analytics tracker
-	var pageTracker = _gat._getTracker("UA-1251897-8");
-	pageTracker._trackPageview('/EDITORIKASUTAMINE');
-
 }	
 <?php } else {echo '';} ?>

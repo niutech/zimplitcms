@@ -244,7 +244,7 @@ form {margin:0; padding:0;}
 .ZtemplShowBox .ZTplChooserBtn img { vertical-align: -25%; }
 
 .ZtemplShowBox .templPicture{
-	background: url('http://zimplit.org/editor_dev/images/templBg.gif') no-repeat; width: 237px; height: 157px; overflow: hidden;
+	background: url('images/templBg.gif') no-repeat; width: 237px; height: 157px; overflow: hidden;
 	padding: 4px 0 0 6px;
 }
 
