@@ -97,7 +97,7 @@ if (extension_loaded('gd') && function_exists('gd_info')) {
 }
  
 if (!isset($_GET['action'])){ $action = NULL; } else {$action = $_GET['action'];}
-if (!isset($_GET['file'])){	$file = NULL;} else {$file = $_GET['file'];}
+if (!isset($_GET['file'])){	$file = NULL;} else {$file = htmlspecialchars($_GET['file'], ENT_QUOTES, 'UTF-8');}
 if (!isset($_GET['page'])){	$page = NULL;} else {$page = $_GET['page'];}
 
 if (!isset($_GET['max_width'])){$max_width = NULL;} else {$max_width = $_GET['max_width'];}
@@ -461,9 +461,9 @@ function checkFileExistance($file){
 }
 
 function getFile(){
-    $file = $_GET['file'];
+    $file = htmlspecialchars($_GET['file'], ENT_QUOTES, 'UTF-8');
     if ($file == '') {
-        $file = $_POST['file'];
+        $file = htmlspecialchars($_POST['file'], ENT_QUOTES, 'UTF-8');
     }
     if ($file != '' && checkFileExistance($file)=='1'){
         return $file;
@@ -978,7 +978,7 @@ if (file_exists($settings['passfile'])) {
 					$theansunpack = downloadTemplate($file);
 					if($theansunpack  == true){
 						header( 'Location: '.$settings['thisPhp'] ) ;
-						echo '<html><head><script>document.location = "'.$settings['thisPhp'].'";</script></head<body></body></html>';
+						echo '<html><head><script>document.location = "'.$settings['thisPhp'].'";</script></head><body></body></html>';
 					} else { 
 						echo $theansunpack ;
 						//echo 'Some bad, bad error occured! Unpacking failed.';
@@ -988,7 +988,7 @@ if (file_exists($settings['passfile'])) {
 				} else if ($action== 'downloadHtmlTemplate'){
 					@downloadExternalPage($file,$page);	
 					header( 'Location: '.$settings['thisPhp'] ) ;
-					echo '<html><head><script>document.location = "'.$settings['thisPhp'].'";</script></head<body></body></html>';
+					echo '<html><head><script>document.location = "'.$settings['thisPhp'].'";</script></head><body></body></html>';
 				} else {
 					loadExternalTemplHtml(getExtParam('templpageindex')); 
 				}
